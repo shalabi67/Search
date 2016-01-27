@@ -1,0 +1,58 @@
+﻿<UserControl
+    x:Class="Search.UserControls.ArticleControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Search.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:a="using:Microsoft.Xaml.Interactivity"
+    mc:Ignorable="d" Height="Auto" Width="{StaticResource ControlWidth}">
+    <VisualStateManager.VisualStateGroups>
+        <VisualStateGroup x:Name="smallWidth">
+            <VisualState x:Name="small">
+                <VisualState.StateTriggers>
+                    <AdaptiveTrigger MinWindowWidth="0" />
+                </VisualState.StateTriggers>
+                <VisualState.Setters>
+                    <Setter Target="PriceText.(RelativePanel.Below)" Value="BrandText"/>
+                    <Setter Target="NameText.(RelativePanel.Below)" Value="PriceText"/>
+                </VisualState.Setters>
+            </VisualState>
+            <VisualState x:Name="normal">
+                <VisualState.StateTriggers>
+                    <AdaptiveTrigger MinWindowWidth="{StaticResource ControlWidth}" />
+                </VisualState.StateTriggers>
+                <VisualState.Setters>
+                    
+                </VisualState.Setters>
+            </VisualState>
+        </VisualStateGroup>
+    </VisualStateManager.VisualStateGroups>
+    <StackPanel>
+        <Image x:Name="image" Height="{StaticResource ControlWidth}"   Source="https://i1.ztat.net/brand/nike-performance.jpg">
+            <a:Interaction.Behaviors>
+                <core:IncrementalUpdateBehavior Phase="2"/>
+            </a:Interaction.Behaviors>
+        </Image>
+        
+        <RelativePanel Padding="10" Height="Auto">
+            <TextBlock x:Name="BrandText" Text="Brand" TextWrapping="Wrap" RelativePanel.AlignLeftWithPanel="True"  FontWeight="Bold">
+                <a:Interaction.Behaviors>
+                    <core:IncrementalUpdateBehavior Phase="1"/>
+                </a:Interaction.Behaviors>
+            </TextBlock>
+            <TextBlock x:Name="PriceText" Text="Price" RelativePanel.AlignRightWithPanel="True" FontWeight="Bold">
+                 <a:Interaction.Behaviors>
+                    <core:IncrementalUpdateBehavior Phase="1"/>
+                </a:Interaction.Behaviors>
+            </TextBlock>
+            <TextBlock x:Name="NameText" Height="Auto" TextWrapping="Wrap" Text="ArticleName" RelativePanel.Below="BrandText" >
+                 <a:Interaction.Behaviors>
+                    <core:IncrementalUpdateBehavior Phase="1"/>
+                </a:Interaction.Behaviors>
+            </TextBlock>
+        </RelativePanel>
+        
+    </StackPanel>
+</UserControl>

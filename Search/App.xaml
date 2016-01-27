@@ -1,0 +1,10 @@
+﻿<Application
+    x:Class="Search.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Search"
+    RequestedTheme="Light">
+    <Application.Resources>
+        <x:Double x:Key="ControlWidth">240</x:Double>
+    </Application.Resources>
+</Application>
